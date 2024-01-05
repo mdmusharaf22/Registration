@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D</title>
+    <style>
+        body{
+           background-color: black;
+        }
+        #box{
+            height: 500px;
+            width: 500px;
+            margin-left: 400px;
+            margin-top: -265px;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        .name{
+            padding-top: 50px;
+            padding-left: 50px;
+        }
+        .name input{
+            height: 30px;
+            width: 400px;
+        }
+        .name1{
+            padding-top: 50px;
+            padding-left: 150px;
+        }
+        .name2{
+            height: 40px;
+            width: 200px;
+            background-color: rgb(105, 31, 105);
+            border: 0px;
+            border-radius: 7px;
+            font-size: 20px;
+        }
+        .name2:hover{
+            opacity: 0.5;
+        }
+        h1{
+            color: white;
+        }
+        form input{
+            border-radius: 7px;
+            opacity: 0.4;
+            color: black;
+            font-size: 20px;
+            border: 0px;
+        }
+        #p1{
+            margin-left: 170px;
+            margin-top: -70px;
+            height: 400px;
+            width: 400px;
+            clip-path: circle(50%);
+            background-color: rgb(105, 31, 105);
+        }
+        #p2{
+            position: fixed;
+            top: 240px;
+            right: 200px;
+            z-index: -1;
+            height: 400px;
+            width: 400px;
+            clip-path: circle(50%);
+            background-color: rgb(105, 31, 105);
+        }
+        @media only screen and (max-width:600px){
+            #box{
+                height: 400px;
+                width: 400px;
+                margin-left: 150px;
+                margin-top: -220px;
+                background: rgba( 255, 255, 255, 0.25 );
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                backdrop-filter: blur( 4px );
+                -webkit-backdrop-filter: blur( 4px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
+            }
+            .name{
+                padding-top: 30px;
+                padding-left: 30px;
+            }
+            .name input{
+                height: 30px;
+                width: 340px;
+            }
+            .name1{
+                padding-top: 40px;
+                padding-left: 100px;
+            }
+            #p1{
+                margin-left:20px;
+                margin-top: 0px;
+                height: 300px;
+                width: 300px;
+                clip-path: circle(50%);
+                background-color: rgb(105, 31, 105);
+            }
+            #p2{
+                position: fixed;
+                top: 300px;
+                right: 40px;
+                z-index: -1;
+                height: 300px;
+                width: 300px;
+                clip-path: circle(50%);
+                background-color: rgb(105, 31, 105);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="p1"></div>
+    <div id="box">
+        <center><h1>Sign up</h1></center>
+        <hr>
+        <form action="registration.html" onsubmit="return show() ">
+            <div class="name"><input type="text" id="txt" placeholder="Name"></div>
+            <div class="name"><input type="email" placeholder="Email Address" id="email"></div>
+            <div class="name"><input type="password" placeholder="Password" id="password"></div>
+            <div class="name1"><button class="name2" onclick="return fun()">Submit</button></div>
+        </form>
+    </div>
+    <div id="p2"></div>
+    <script>
+        let a=document.getElementById("txt");
+        function fun()
+        {
+            let b=document.getElementById("password").value;
+            let c=document.getElementById("email").value;
+            let lower= /[a-z]/;
+            let upper= /[A-Z]/;
+            let number= /[0-9]/;
+            let q=b.length;
+            let result4=null
+            if(q>=8){
+                result4=true;
+            }
+            else{
+                result4=false;
+            }
+            let result1=lower.test(b)
+            let result2=upper.test(b)
+            let result3=number.test(b)
+            if(result1&& result2 && result3 && result4)
+            {
+                localStorage.setItem("name",c)
+                localStorage.setItem("pass",b);
+                return true;
+            }
+            else{
+                alert("password should be in order");
+                return false;
+            } 
+        }
+        function show(){
+            if(a.value.trim()=='' || b.value.trim()=='' || c.value.trim()=='')
+            {
+                alert("please fill the box")
+                return false;
+            }
+            else{                 
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
