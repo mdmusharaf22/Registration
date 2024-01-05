@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background-color: black;
+        }
+        #box{
+            height: 500px;
+            width: 500px;
+            margin-left: 400px;
+            margin-top: -530px;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        form input{
+            border-radius: 7px;
+            opacity: 0.4;
+            color: black;
+            font-size: 20px;
+            border: 0px;
+        }
+        .name{
+            padding-top: 40px;
+            padding-left: 50px;
+        }
+        input{
+            height: 30px;
+            width: 400px;
+        }
+        .name1{
+            padding-top: 50px;
+            padding-left: 150px;
+        }
+        button{
+            height: 40px;
+            width: 200px;
+            border: 0px;
+            border-radius: 7px;
+            font-size: 20px;
+            background-color: rgb(228, 18, 53);
+        }
+        button:hover{
+            opacity: 0.5;
+        }
+        #head{
+            padding-top: 20px;
+            color: white;
+        }
+        .p1{
+            margin-top: 50px;
+            margin-left: 380px;
+            height: 550px;
+            width: 550px;
+            background-color: rgb(224, 66, 92);
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        }
+        @media only screen and (max-width:700px){
+            #box{
+                height: 400px;
+                width: 400px;
+                margin-left: 70px;
+                margin-top: -420px;
+                background: rgba( 255, 255, 255, 0.25 );
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                backdrop-filter: blur( 4px );
+                -webkit-backdrop-filter: blur( 4px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
+            }
+            .name{
+                padding-top: 30px;
+                padding-left: 30px;
+            }
+            input{
+                height: 30px;
+                width: 340px;
+            }
+            .name1{
+                padding-top: 30px;
+                padding-left: 100px;
+            }
+            .p1{
+                margin-top: 90px;
+                margin-left: 55px;
+                height: 450px;
+                width: 450px;
+                background-color: rgb(224, 66, 92);
+                clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="p1"></div>
+     <div id="box">
+        <center><h1 id="head">Sign in</h1></center>
+        <hr><br>
+        <form action="./images/bg.jpg" onsubmit=" return show()">
+        <div class="name"><input type="email" placeholder="Email Address" id="email"></div><br>
+        <div class="name"><input type="password" placeholder="Password" id="password"></div><br>
+        <div class="name1"><button type="submit">SIGN IN</button></div>
+        </form> 
+    </div>
+    <script>
+        function show(){
+            let n=localStorage.getItem("name");
+            let m=localStorage.getItem("pass");
+            let b=document.getElementById("email").value;
+            let c=document.getElementById("password").value;
+            if(b==n && c==m){
+                return true;
+             }
+            else if(b.trim()=='' || c.trim()=='')
+            {
+                alert("Please fill the box")
+                return false;
+            }
+            else{
+                alert("password incorrect")
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
